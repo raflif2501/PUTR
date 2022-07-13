@@ -2,17 +2,24 @@
 <html lang="en">
 
 <head>
-    <title>Zay Shop eCommerce HTML CSS Template</title>
+    <title>DPUTR-BISMILLAH MELAYANI</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="{{ asset('user') }}/img/apple-icon.png">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('user') }}/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('user') }}/img/icon.png">
 
     <link rel="stylesheet" href="{{ asset('user') }}/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('user') }}/css/templatemo.css">
     <link rel="stylesheet" href="{{ asset('user') }}/css/custom.css">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous">
+    </script>
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
@@ -28,13 +35,18 @@ https://templatemo.com/tm-559-zay-shop
 
 <body>
     <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-light shadow">
+    <nav class="navbar navbar-expand-lg navbar-light shadow"
+        style="background-image:url({{ asset('user') }}/img/navbar.jpg)">
         <div class="container d-flex justify-content-between align-items-center">
-
-            <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
-                Zay
+            <img src="{{ asset('user') }}/img/pemkab.png" alt="Pemerintah Kabupaten Sumenep"
+                style="height: 75px; width:auto; display:block; margin:auto;">&emsp;
+            <a class="navbar-brand  logo span align-self-center" href="{{ route('home') }}">
+                <strong>
+                    <span>DINAS PEKERJAAN UMUM DAN TATA RUANG</span><br>
+                    <span>KABUPATEN SUMENEP</span>
+                </strong>
             </a>
-
+            &ensp;
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
                 data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -42,60 +54,98 @@ https://templatemo.com/tm-559-zay-shop
             </button>
 
             <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
-            id="templatemo_main_nav">
+                id="templatemo_main_nav">
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
+                            <a class="nav-link" href="{{ route('home') }}">Beranda</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <div class="input-group">
-                                <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
-                                <div class="input-group-text">
-                                    <i class="fa fa-fw fa-search"></i>
-                                </div>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Profil</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Visi Misi</a>
+                                <a class="dropdown-item" href="#">Struktur Organisasi</a>
                             </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Bidang
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Bina Marga</a>
+                                    <ul class="submenu dropdown-menu">
+                                        <li><a class="dropdown-item" href="">BM-Tender</a></li>
+                                        <li><a class="dropdown-item" href="">BM-PL</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="#">Penataan Bangunan Gedung</a>
+                                    <ul class="submenu dropdown-menu">
+                                        <li><a class="dropdown-item" href="">PBG-Tender</a></li>
+                                        <li><a class="dropdown-item" href="">PBG-PL</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="#">Air Minum dan PLP</a>
+                                    <ul class="submenu dropdown-menu">
+                                        <li><a class="dropdown-item" href="">AM & PLP-Tender</a></li>
+                                        <li><a class="dropdown-item" href="">AM & PLP-PL</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="#">Sumber Daya Air</a>
+                                    <ul class="submenu dropdown-menu">
+                                        <li><a class="dropdown-item" href="">SDA-Tender</a></li>
+                                        <li><a class="dropdown-item" href="">SDA-PL</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="">Bina Jasa Konstruksi</a></li>
+                                <li><a class="dropdown-item" href="#">Tata Ruang</a>
+                                    <ul class="submenu dropdown-menu">
+                                        <li><a class="dropdown-item" href="">KKPR-Usaha</a></li>
+                                        <li><a class="dropdown-item" href="">KKPR-Non Usaha</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Berita</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">SP2D</a>
                         </li>
                     </ul>
                 </div>
                 <div class="navbar align-self-center d-flex">
                     @guest
-                    @if (Route::has('login'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
+                        @if (Route::has('login'))
+                            <a class="nav-link" href="{{ route('login') }}"><i
+                                    class="fas fa-sign-in-alt"></i>&nbsp;Login</a>
                         @endif
                     @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                <i class="fa fa-user fa-fw"></i>
-                                {{ Auth::user()->name }}
+                        {{-- <div class="input-group">
+                        <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                        <div class="input-group-text">
+                            <i class="fa fa-fw fa-search"></i>
+                        </div>
+                    </div> --}}
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <i class="fas fa-user-circle"></i>
+                            {{ Auth::user()->name }}
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                <i class="fas fa-sign-out-alt"></i>
+                                &nbsp;Logout
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    <i class="fa fa-arrow-circle-left fa-fw"></i>
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
                     @endguest
                 </div>
             </div>
-
         </div>
     </nav>
     <!-- Close Header -->
