@@ -40,7 +40,7 @@ https://templatemo.com/tm-559-zay-shop
         <div class="container d-flex justify-content-between align-items-center">
             <img src="{{ asset('user') }}/img/pemkab.png" alt="Pemerintah Kabupaten Sumenep"
                 style="height: 75px; width:auto; display:block; margin:auto;">&emsp;
-            <a class="navbar-brand  logo span align-self-center" href="{{ route('home') }}">
+            <a class="navbar-brand  logo span align-self-center" href="#">
                 <strong>
                     <span>DINAS PEKERJAAN UMUM DAN TATA RUANG</span><br>
                     <span>KABUPATEN SUMENEP</span>
@@ -58,7 +58,7 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home') }}">Beranda</a>
+                            <a class="nav-link" href="#">Beranda</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Profil</a>
