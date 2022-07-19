@@ -50,13 +50,13 @@
                                         required="required">
                                     <i class="zmdi zmdi-code input-group-symbol"></i>
                                 </div>
-                                <div class="input-group">
+                                {{-- <div class="input-group">
                                     <label class="label">Token</label>
                                     <input type="text" name="address" placeholder="Masukkan Token"
                                         required="required">
                                     <i class="zmdi zmdi-key input-group-symbol"></i>
-                                </div>
-                                <button class="btn-submit m-t-15" type="submit">Cek Resi</button>
+                                </div> --}}
+                                <button class="btn-submit m-t-20" type="submit">Cek Resi</button>
                             </form>
                         </div>
                     </div>
