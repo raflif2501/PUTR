@@ -27,7 +27,6 @@ class PengajuanSeeder extends Seeder
         'nilai_pengajuan' => '1418522595',
         'tahun_anggaran' => '2022',
         'tanggal_pengajuan' => '2021-06-25 14:14:58',
-        'batas_pengajuan' => '2021-06-26 14:14:58',
         'status' => 'Pengajuan',
         'keterangan' => '',
         ]);

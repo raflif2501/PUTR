@@ -19,7 +19,6 @@ class CreatePengecekanTable extends Migration
             $table->foreign('id_pengajuan')->references('id')
             ->on('pengajuans');
             $table->datetime('tanggal_pengecekan')->nullable();
-            $table->datetime('batas_pengecekan')->nullable();
             $table->string('status');
             $table->string('keterangan')->nullable();
             $table->timestamps();

@@ -24,7 +24,6 @@ class CreatePengajuanTable extends Migration
             $table->bigInteger('nilai_pengajuan');
             $table->string('tahun_anggaran',4);
             $table->datetime('tanggal_pengajuan')->nullable();
-            $table->datetime('batas_pengajuan')->nullable();
             $table->string('status');
             $table->string('keterangan')->nullable();
             $table->timestamps();

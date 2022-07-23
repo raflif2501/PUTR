@@ -19,7 +19,6 @@ class CreateVerifikasiTable extends Migration
             $table->foreign('id_pengecekan')->references('id')
             ->on('pengecekans');
             $table->datetime('tanggal_verifikasi')->nullable();
-            $table->datetime('batas_verifikasi')->nullable();
             $table->string('status');
             $table->string('keterangan')->nullable();
             $table->timestamps();
