@@ -16,6 +16,10 @@ class Verifikasi extends Model
     protected $guarded=[];
     public function pengecekan()
     {
-        return $this->belongsTo('App\Models\Pengecekan', 'id_pengecekan');
+        return $this->belongsTo(Pengecekan::class);
+    }
+    public function pengajuan()
+    {
+        return $this->belongsTo(Pengajuan::class);
     }
 }

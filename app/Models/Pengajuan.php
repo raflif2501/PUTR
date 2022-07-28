@@ -16,6 +16,10 @@ class Pengajuan extends Model
     protected $guarded=[];
     public function pengecekan()
     {
-        return $this->hasOne('App\Models\Pengecekan', 'id_pengajuan');
+        return $this->hasOne(Pengecekan::class);
+    }
+    public function verifikasi()
+    {
+        return $this->hasOne(Verifikasi::class);
     }
 }

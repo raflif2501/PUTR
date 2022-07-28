@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use App\Models\Pengajuan;
+use App\Models\Pengecekan;
+use RealRashid\SweetAlert\Facades\Alert;
+use Carbon\Carbon;
 
 class PengecekanController extends Controller
 {
@@ -11,9 +16,16 @@ class PengecekanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
-        //
+        $auth = auth()->user();
+        $data = Pengecekan::all();
+        // dd($data);
+        return view('admin.pengecekan.index', compact('data'));
     }
 
     /**
@@ -23,7 +35,10 @@ class PengecekanController extends Controller
      */
     public function create()
     {
-        //
+        $resi = Str::random(12);
+        $today = Carbon::now();
+        return view('admin.pengecekan.create', compact('resi','today'));
+        // dd($resi);
     }
 
     /**
@@ -34,7 +49,10 @@ class PengecekanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Pengecekan::create($request->all());
+        // dd($request);
+        Alert::success('Success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('pengecekan.index');
     }
 
     /**
@@ -56,7 +74,9 @@ class PengecekanController extends Controller
      */
     public function edit($id)
     {
-        //
+         $data = Pengecekan::find($id);
+         $today = Carbon::now();
+         return view('admin.pengecekan.edit', compact('data','today'));
     }
 
     /**
@@ -68,7 +88,10 @@ class PengecekanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Pengecekan::find($id);
+        $data->update($request->all());
+        Alert::success('Success', 'Data Berhasil Diproses');
+        return redirect()->route('pengecekan.index');
     }
 
     /**
@@ -79,6 +102,7 @@ class PengecekanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Pengeceakan::find($id);
+        $data->delete();
     }
 }

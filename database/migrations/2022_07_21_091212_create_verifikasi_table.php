@@ -15,9 +15,8 @@ class CreateVerifikasiTable extends Migration
     {
         Schema::create('verifikasis', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_pengecekan')->unsigned();
-            $table->foreign('id_pengecekan')->references('id')
-            ->on('pengecekans');
+            $table->foreignId('pengecekan_id')->constrained('pengecekans');
+            $table->foreignId('pengajuan_id')->constrained('pengajuans');
             $table->datetime('tanggal_verifikasi')->nullable();
             $table->string('status');
             $table->string('keterangan')->nullable();

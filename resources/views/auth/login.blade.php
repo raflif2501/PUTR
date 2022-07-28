@@ -43,7 +43,8 @@
                         Silahkan Login
                     </span>
                     <span class="login100-form-title p-b-48">
-                        <img src="{{ asset('user') }}/img/pemkab.png" alt="PUTR" height="100" width="100">
+                        <img src="{{ asset('admin') }}/dist/img/pemkab.png" alt="PUTR" height="auto"
+                            width="100">
                     </span>
                     <div class="wrap-input100 validate-input">
                         <input class="input100" type="text" name="email">
@@ -74,13 +75,13 @@
                         </div>
                     </div>
                     <div class="text-center p-t-115">
-                        <span class="txt1">
+                        {{-- <span class="txt1">
                             Belum Punya Akun ?
                         </span>
 
                         <a class="txt2" href="{{ route('register') }}">
                             Register
-                        </a>
+                        </a> --}}
                     </div>
                 </form>
             </div>

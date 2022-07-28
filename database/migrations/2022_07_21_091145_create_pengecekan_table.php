@@ -15,9 +15,7 @@ class CreatePengecekanTable extends Migration
     {
         Schema::create('pengecekans', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_pengajuan')->unsigned();
-            $table->foreign('id_pengajuan')->references('id')
-            ->on('pengajuans');
+            $table->foreignId('pengajuan_id')->constrained('pengajuans');
             $table->datetime('tanggal_pengecekan')->nullable();
             $table->string('status');
             $table->string('keterangan')->nullable();

@@ -18,6 +18,7 @@ class CreatePengajuanTable extends Migration
             $table->string('resi');
             $table->string('program');
             $table->string('kegiatan');
+            $table->string('sub_kegiatan');
             $table->string('pekerjaan');
             $table->string('pelaksana');
             $table->integer('angsuran');

@@ -16,10 +16,10 @@ class Pengecekan extends Model
     protected $guarded=[];
     public function pengajuan()
     {
-        return $this->belongsTo('App\Models\Pengajuan', 'id_pengajuan');
+        return $this->belongsTo(Pengajuan::class);
     }
      public function verifikasi()
      {
-        return $this->hasOne('App\Models\Verifikasi', 'id_pengecekan');
+        return $this->hasOne(Verifikasi::class);
      }
 }
