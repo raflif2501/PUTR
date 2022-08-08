@@ -20,13 +20,33 @@ class VerifikasiController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('role:admin|verificator');
     }
     public function index()
     {
         $auth = auth()->user();
         $data = Verifikasi::all();
+        // $cek = Verifikasi::select("pengecekan_id")->get();
         // dd($data);
         return view('admin.verifikasi.index', compact('data'));
+    }
+    public function disetujui()
+    {
+        $data = Verifikasi::select("*")->where("status","=","Disetujui")->get();
+        // dd($data);
+        return view('admin.verifikasi.disetujui', compact('data'));
+    }
+    public function ditolak()
+    {
+        $data = Verifikasi::select("*")->where("status","=","Ditolak")->get();
+        // dd($data);
+        return view('admin.verifikasi.ditolak', compact('data'));
+    }
+    public function tidaklengkap()
+    {
+        $data = Verifikasi::select("*")->where("status","=","Tidak Lengkap")->get();
+        // dd($data);
+        return view('admin.verifikasi.tidaklengkap', compact('data'));
     }
 
     /**
@@ -99,4 +119,5 @@ class VerifikasiController extends Controller
     {
         //
     }
+
 }

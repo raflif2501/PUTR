@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Pengajuan;
 use App\Models\Pengecekan;
+use App\Models\Verifikasi;
 use RealRashid\SweetAlert\Facades\Alert;
 use Carbon\Carbon;
 
@@ -19,6 +20,7 @@ class PengajuanController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('role:admin|ppko');
     }
     public function index()
     {
@@ -83,10 +85,12 @@ class PengajuanController extends Controller
             ]);
         }
         Pengecekan::create([
+            'id' => $id,
             'pengajuan_id' => $id,
             'status' => '',
         ]);
         Verifikasi::create([
+            'pengajuan_id' => $id,
             'pengecekan_id' => $id,
             'status' => '',
         ]);
@@ -141,7 +145,21 @@ class PengajuanController extends Controller
      */
     public function destroy($id)
     {
+        // $data2 = Verifikasi::find($id);
         $data = Pengajuan::find($id);
-        $data->delete();
+        $data1 = Pengecekan::find($id);
+        $data2 = Verifikasi::where('id',$id)->first();
+        // dd($data2);
+        if ($data2 != null) {
+            $data2->delete();
+            if ($data1 != null) {
+                $data1->delete();
+                if ($data != null) {
+                    $data->delete();
+                    Alert::success('Success', 'Data Berhasil Dihapus');
+                    return back();
+                }
+            }
+        }
     }
 }

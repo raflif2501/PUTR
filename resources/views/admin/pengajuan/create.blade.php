@@ -68,7 +68,7 @@
                             <div class="form-group">
                                 <label>Angsuran</label>
                                 <input type="number" name="angsuran" class="form-control"
-                                    placeholder="Masukkan Jumlah Angsuran" max="3">
+                                    placeholder="Masukkan Jumlah Angsuran" max="4">
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -121,5 +121,4 @@
             <!-- /.card-body -->
         </div>
     </div>
-    <br><br><br>
 @endsection

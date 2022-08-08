@@ -117,39 +117,45 @@
                             </a>
                         </li>
                         <li class="nav-header">STATUS</li>
-                        <li class="nav-item">
-                            <a href="{{ route('pengajuan.index') }}" class="nav-link">
-                                <i class="nav-icon fas fa-edit"></i>
-                                <p>Pengajuan</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('pengecekan.index') }}" class="nav-link">
-                                <i class="nav-icon fas fa-spinner"></i>
-                                <p>Diproses</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('verifikasi.index') }}" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
-                                <p>Verifikasi</p>
-                            </a>
-                        </li>
+                        @role('admin|ppko')
+                            <li class="nav-item">
+                                <a href="{{ route('pengajuan.index') }}" class="nav-link">
+                                    <i class="nav-icon fas fa-edit"></i>
+                                    <p>Pengajuan</p>
+                                </a>
+                            </li>
+                        @endrole
+                        @role('admin|pptk')
+                            <li class="nav-item">
+                                <a href="{{ route('pengecekan.index') }}" class="nav-link">
+                                    <i class="nav-icon fas fa-spinner"></i>
+                                    <p>Diproses</p>
+                                </a>
+                            </li>
+                        @endrole
+                        @role('admin|verificator')
+                            <li class="nav-item">
+                                <a href="{{ route('verifikasi.index') }}" class="nav-link">
+                                    <i class="nav-icon fas fa-copy"></i>
+                                    <p>Verifikasi</p>
+                                </a>
+                            </li>
+                        @endrole
                         <li class="nav-header">Hasil Verifikasi</li>
                         <li class="nav-item">
-                            <a href="{{ route('verifikasi.index') }}" class="nav-link">
+                            <a href="/disetujui" class="nav-link">
                                 <i class="nav-icon fas fa-check"></i>
                                 <p>Disetujui</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/calendar.html" class="nav-link">
-                                <i class="nav-icon fas fa-tasks"></i>
+                            <a href="/tidaklengkap" class="nav-link">
+                                <i class="nav-icon fas fa-clipboard"></i>
                                 <p>Tidak lengkap</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
+                            <a href="/ditolak" class="nav-link">
                                 <i class="nav-icon fas fa-times"></i>
                                 <p>Ditolak</p>
                             </a>
@@ -157,7 +163,7 @@
                         @role('admin')
                             <li class="nav-header">ADMIN</li>
                             <li class="nav-item">
-                                <a href="pages/calendar.html" class="nav-link">
+                                <a href="{{ route('users.index') }}" class="nav-link">
                                     <i class="nav-icon fas fa-users"></i>
                                     <p>Tambah Admin</p>
                                 </a>
@@ -190,6 +196,7 @@
             </section>
             <!-- /.content -->
         </div>
+        <br><br><br>
         <!-- /.content-wrapper -->
         <footer class="main-footer fixed-bottom">
             <strong>Dinas Perkejaan Umum dan Tata Ruang Kabupaten Sumenep</strong>
@@ -271,6 +278,25 @@
                 "autoWidth": false,
                 "responsive": true,
             });
+        });
+    </script>
+    <script>
+        $(function() {
+            var url = window.location;
+            // for single sidebar menu
+            $('ul.nav-sidebar a').filter(function() {
+                return this.href == url;
+            }).addClass('active');
+
+            // for sidebar menu and treeview
+            $('ul.nav-treeview a').filter(function() {
+                    return this.href == url;
+                }).parentsUntil(".nav-sidebar > .nav-treeview")
+                .css({
+                    'display': 'block'
+                })
+                .addClass('menu-open').prev('a')
+                .addClass('active');
         });
     </script>
 </body>

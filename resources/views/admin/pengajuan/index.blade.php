@@ -34,6 +34,11 @@
                             <tbody>
                                 @php
                                     $no = 1;
+                                    function str($rupiah)
+                                    {
+                                        $rp = 'Rp ' . number_format($rupiah, 2, ',', '.');
+                                        return $rp;
+                                    }
                                 @endphp
                                 @foreach ($data as $p)
                                     <tr>
@@ -45,16 +50,21 @@
                                         <td>{{ $p->pekerjaan }}</td>
                                         <td>{{ $p->pelaksana }}</td>
                                         <td>{{ $p->angsuran }}</td>
-                                        <td>{{ $p->nilai_pengajuan }}</td>
+                                        <td>{{ str($p->nilai_pengajuan) }}</td>
                                         <td>{{ $p->tahun_anggaran }}</td>
                                         <td>{{ $p->tanggal_pengajuan }}</td>
                                         <td>{{ $p->status }}</td>
                                         <td>{{ $p->keterangan }}</td>
                                         <td>
-                                            <a href="{{ route('pengajuan.edit', $p->id) }}"
-                                                class="btn btn-sm btn-warning">Edit</a>
-                                            <input type="button" class="btn btn-sm btn-danger"
-                                                data-id="{{ $p->id }}" onclick="deleteData(this)" value="Delete">
+                                            <form action="{{ route('pengajuan.destroy', $p->id) }}" method="post"
+                                                style="display:inline">
+                                                <a href="{{ route('pengajuan.edit', $p->id) }}"
+                                                    class="btn btn-sm btn-warning">Edit</a>
+                                                <button type="submit" class="btn btn-sm btn-danger"
+                                                    onclick="return confirm('Yakin ingin menghapus data ? Data tidak dapat dipulihkan')">Delete</button>
+                                                @csrf
+                                                @method('DELETE')
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -67,6 +77,5 @@
             </div>
         </div>
     </div>
-    <br><br><br>
     @include('admin.pengajuan.scriptDelete')
 @endsection

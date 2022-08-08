@@ -44,5 +44,4 @@
             <!-- /.card-body -->
         </div>
     </div>
-    <br><br><br>
 @endsection

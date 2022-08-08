@@ -11,13 +11,12 @@
 
     <!-- Title Page-->
     <title>Cek Resi | PUTR</title>
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('user') }}/img/icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('admin') }}/dist/img/pemkab.png">
 
     <!-- Icons font CSS-->
     <link href="{{ asset('search') }}/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet"
         media="all">
-    <link href="{{ asset('search') }}/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet"
-        media="all">
+    <link href="{{ asset('search') }}/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <!-- Font special for pages-->
     <link
         href="{{ asset('search') }}/https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
@@ -43,12 +42,12 @@
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab1">
-                            <form method="POST" action="#">
+                            <form method="GET" action="/cari">
                                 <div class="input-group">
                                     <label class="label">Resi</label>
-                                    <input type="text" name="address" placeholder="Masukkan Resi"
+                                    <input type="text" name="cari" placeholder="Masukkan Resi"
                                         required="required">
-                                    <i class="zmdi zmdi-code input-group-symbol"></i>
+                                    <i class="zmdi zmdi-key input-group-symbol"></i>
                                 </div>
                                 {{-- <div class="input-group">
                                     <label class="label">Token</label>

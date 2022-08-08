@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Str;
+use App\Models\Pengajuan;
+use App\Models\Pengecekan;
+use App\Models\Verifikasi;
 
 class HomeController extends Controller
 {
@@ -25,6 +29,10 @@ class HomeController extends Controller
     public function index()
     {
         $auth = auth()->user();
-        return view('admin.index') ;
+        $disetujui = Verifikasi::where('status','=', 'Disetujui')->count();
+        $ditolak = Verifikasi::where('status', '=','Ditolak')->count();
+        $tidaklengkap = Verifikasi::where('status','=', 'Tidak Lengkap')->count();
+        $pengajuan = Pengajuan::count();
+        return view('admin.index',compact('disetujui','ditolak','tidaklengkap','pengajuan')) ;
     }
 }

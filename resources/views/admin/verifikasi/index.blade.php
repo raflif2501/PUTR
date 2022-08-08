@@ -40,36 +40,43 @@
                             <tbody>
                                 @php
                                     $no = 1;
+                                    function str($rupiah)
+                                    {
+                                        $rp = 'Rp ' . number_format($rupiah, 2, ',', '.');
+                                        return $rp;
+                                    }
                                 @endphp
                                 @foreach ($data as $p)
-                                    <tr>
-                                        <td>{{ $no++ }}</td>
-                                        <td>{{ $p->pengajuan->resi }}</td>
-                                        <td>{{ $p->pengajuan->program }}</td>
-                                        <td>{{ $p->pengajuan->kegiatan }}</td>
-                                        <td>{{ $p->pengajuan->sub_kegiatan }}</td>
-                                        <td>{{ $p->pengajuan->pekerjaan }}</td>
-                                        <td>{{ $p->pengajuan->pelaksana }}</td>
-                                        <td>{{ $p->pengajuan->angsuran }}</td>
-                                        <td>{{ $p->pengajuan->nilai_pengajuan }}</td>
-                                        <td>{{ $p->pengajuan->tahun_anggaran }}</td>
-                                        <td>{{ $p->pengajuan->tanggal_pengajuan }}</td>
-                                        <td>{{ $p->pengajuan->status }}</td>
-                                        <td>{{ $p->pengajuan->keterangan }}</td>
-                                        <td>{{ $p->pengecekan->tanggal_pengecekan }}</td>
-                                        <td>{{ $p->pengecekan->status }}</td>
-                                        <td>{{ $p->pengecekan->keterangan }}</td>
-                                        <td>{{ $p->tanggal_verifikasi }}</td>
-                                        <td>{{ $p->status }}</td>
-                                        <td>{{ $p->keterangan }}</td>
-                                        <td>
-                                            <a href="{{ route('verifikasi.edit', $p->id) }}"
-                                                class="btn btn-sm btn-success">Proses Verifikasi
-                                            </a>
-                                            {{-- <input type="button" class="btn btn-sm btn-danger"
-                                                data-id="{{ $p->id }}" onclick="deleteData(this)" value="Delete"> --}}
-                                        </td>
-                                    </tr>
+                                    @if ($p->pengecekan->status != null)
+                                        <tr>
+                                            <td>{{ $no++ }}</td>
+                                            <td>{{ $p->pengajuan->resi }}</td>
+                                            <td>{{ $p->pengajuan->program }}</td>
+                                            <td>{{ $p->pengajuan->kegiatan }}</td>
+                                            <td>{{ $p->pengajuan->sub_kegiatan }}</td>
+                                            <td>{{ $p->pengajuan->pekerjaan }}</td>
+                                            <td>{{ $p->pengajuan->pelaksana }}</td>
+                                            <td>{{ $p->pengajuan->angsuran }}</td>
+                                            <td>{{ str($p->pengajuan->nilai_pengajuan) }}</td>
+                                            <td>{{ $p->pengajuan->tahun_anggaran }}</td>
+                                            <td>{{ $p->pengajuan->tanggal_pengajuan }}</td>
+                                            <td>{{ $p->pengajuan->status }}</td>
+                                            <td>{{ $p->pengajuan->keterangan }}</td>
+                                            <td>{{ $p->pengecekan->tanggal_pengecekan }}</td>
+                                            <td>{{ $p->pengecekan->status }}</td>
+                                            <td>{{ $p->pengecekan->keterangan }}</td>
+                                            <td>{{ $p->tanggal_verifikasi }}</td>
+                                            <td>{{ $p->status }}</td>
+                                            <td>{{ $p->keterangan }}</td>
+                                            <td>
+                                                @if ($p->status == null)
+                                                    <a href="{{ route('verifikasi.edit', $p->id) }}"
+                                                        class="btn btn-sm btn-success">Proses Verifikasi
+                                                    </a>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                    @endif
                                 @endforeach
                             </tbody>
                         </table>
@@ -80,5 +87,4 @@
             </div>
         </div>
     </div>
-    @include('admin.pengajuan.scriptDelete')
 @endsection

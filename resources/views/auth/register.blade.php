@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('user') }}/img/icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('admin') }}/dist/img/pemkab.png">
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{ asset('loginn') }}/vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
