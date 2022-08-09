@@ -66,9 +66,16 @@
                         <li class="user-header bg-primary">
                             <img src="{{ asset('admin') }}/dist/img/avatar5.png" class="img-circle elevation-2"
                                 alt="User Image">
-                            <p>
+                            <h5>
                                 {{ Auth::user()->name }}
-                            </p>
+                            </h5>
+                            @php
+                                $id = Auth::user()->id;
+                            @endphp
+                            @role('admin')
+                                <a href="{{ route('users.edit', $id) }}"><u>Edit
+                                        Profile</u></a>
+                            @endrole
                         </li>
                         <li class="user-footer">
                             <div class="pull-left">

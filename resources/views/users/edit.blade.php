@@ -16,14 +16,16 @@
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Nama</label>
-                                <input type="text" name="name" class="form-control" placeholder="{{ $user->name }}">
+                                <input type="text" name="name" class="form-control" placeholder="{{ $user->name }}"
+                                    value="{{ $user->name }}">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="text" name="email" class="form-control" placeholder="{{ $user->email }}">
+                                <input type="text" name="email" class="form-control" placeholder="{{ $user->email }}"
+                                    value="{{ $user->email }}">
                             </div>
                         </div>
                     </div>
@@ -50,8 +52,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-primary" style="float: right">Submit</button>
+                    <div class="card-footer" style="float: right">
+                        <a href="{{ route('users.index') }}" class="btn btn-danger">Kembali</a>&ensp;
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>
             </div>

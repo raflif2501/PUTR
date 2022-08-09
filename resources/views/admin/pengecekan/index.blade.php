@@ -66,6 +66,8 @@
                                                 <a href="{{ route('pengecekan.edit', $p->id) }}"
                                                     class="btn btn-sm btn-success">Proses Pengajuan
                                                 </a>
+                                            @elseif ($p->status != null)
+                                                Sudah Diproses
                                             @endif
                                         </td>
                                     </tr>

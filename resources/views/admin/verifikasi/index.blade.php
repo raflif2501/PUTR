@@ -73,6 +73,8 @@
                                                     <a href="{{ route('verifikasi.edit', $p->id) }}"
                                                         class="btn btn-sm btn-success">Proses Verifikasi
                                                     </a>
+                                                @elseif ($p->status != null)
+                                                    Sudah Diverifikasi
                                                 @endif
                                             </td>
                                         </tr>

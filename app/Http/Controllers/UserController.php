@@ -72,8 +72,8 @@ class UserController extends Controller
     */
     public function show($id)
     {
-        $user = User::find($id);
-        return view('users.show',compact('user'));
+        // $user = User::find($id);
+        // return view('users.show',compact('user'));
     }
 
     /**
@@ -109,15 +109,9 @@ public function update(Request $request, $id)
         $input['password'] = Hash::make($input['password']);
         $user = User::find($id);
         $user->update($input);
-        $user->assignRole($request->input('roles'));
-        var_dump($input);die;
-        // if(!empty($input['password'])){
-        // $input['password'] = Hash::make($input['password']);
-        // }else{
-        // $input = Arr::except($input,array('password'));
-        // }
-
         DB::table('model_has_roles')->where('model_id',$id)->delete();
+        $user->assignRole($request->input('roles'));
+        // var_dump($input);die;
         Alert::success('Success', 'Data Admin Berhasil Dirubah');
         return redirect()->route('users.index');
     }

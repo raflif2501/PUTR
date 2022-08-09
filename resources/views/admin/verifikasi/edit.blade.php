@@ -37,7 +37,8 @@
                                 class="form-control">
                         </div>
                     </div>
-                    <div class="card-footer">
+                    <div class="card-footer" style="float: right">
+                        <a href="{{ route('verifikasi.index') }}" class="btn btn-danger">Kembali</a>&ensp;
                         <button type="submit" class="btn btn-primary" style="float: right">Submit</button>
                     </div>
                 </form>

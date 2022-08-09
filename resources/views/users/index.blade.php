@@ -41,8 +41,6 @@
                                         <td>
                                             <form action="{{ route('users.destroy', $user->id) }}" method="post"
                                                 style="display:inline">
-                                                <a class="btn btn-sm btn-primary"
-                                                    href="{{ route('users.show', $user->id) }}">Show</a>
                                                 <a class="btn btn-sm btn-warning"
                                                     href="{{ route('users.edit', $user->id) }}">Edit</a>
                                                 <button type="submit" class="btn btn-sm btn-danger"
