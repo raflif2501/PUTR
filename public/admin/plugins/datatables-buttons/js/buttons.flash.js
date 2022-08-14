@@ -1465,7 +1465,7 @@
 
         extension: '.pdf',
 
-        orientation: 'portrait',
+        orientation: 'landscape',
 
         pageSize: 'A4',
 

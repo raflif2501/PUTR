@@ -8,6 +8,15 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <form action="{{ route('pengajuan.store') }}" enctype="multipart/form-data" method="POST">
                     @csrf
                     <div class="row">
@@ -15,14 +24,16 @@
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Program</label>
-                                <input type="text" name="program" class="form-control" placeholder="Masukkan Program">
+                                <input type="text" name="program" class="form-control" placeholder="Masukkan Program"
+                                    value="{{ old('program') }}">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Kegiatan</label>
-                                <input type="text" name="kegiatan" class="form-control" placeholder="Masukkan Kegiatan">
+                                <input type="text" name="kegiatan" class="form-control" placeholder="Masukkan Kegiatan"
+                                    value="{{ old('kegiatan') }}">
                             </div>
                         </div>
                     </div>
@@ -31,8 +42,8 @@
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Pekerjaan</label>
-                                <input type="text" name="pekerjaan" class="form-control"
-                                    placeholder="Masukkan Pekerjaan">
+                                <input type="text" name="pekerjaan" class="form-control" placeholder="Masukkan Pekerjaan"
+                                    value="{{ old('pekerjaan') }}">
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -40,7 +51,7 @@
                             <div class="form-group">
                                 <label>Sub Kegiatan</label>
                                 <input type="text" name="sub_kegiatan" class="form-control"
-                                    placeholder="Masukkan Sub Kegiatan">
+                                    placeholder="Masukkan Sub Kegiatan" value="{{ old('sub_kegiatan') }}">
                             </div>
                         </div>
                     </div>
@@ -49,8 +60,8 @@
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Pelaksana</label>
-                                <input type="text" name="pelaksana" class="form-control"
-                                    placeholder="Masukkan Pelaksana">
+                                <input type="text" name="pelaksana" class="form-control" placeholder="Masukkan Pelaksana"
+                                    value="{{ old('pelaksana') }}">
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -58,7 +69,7 @@
                             <div class="form-group">
                                 <label>Nilai Pengajuan</label>
                                 <input type="text" name="nilai_pengajuan" class="form-control"
-                                    placeholder="Masukkan Nominal Pengajuan">
+                                    placeholder="Masukkan Nominal Pengajuan" value="{{ old('nilai_pengajuan') }}">
                             </div>
                         </div>
                     </div>
@@ -68,7 +79,7 @@
                             <div class="form-group">
                                 <label>Angsuran</label>
                                 <input type="number" name="angsuran" class="form-control"
-                                    placeholder="Masukkan Jumlah Angsuran" max="4">
+                                    placeholder="Masukkan Jumlah Angsuran" max="4" value="{{ old('angsuran') }}">
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -76,7 +87,7 @@
                             <div class="form-group">
                                 <label>Tahun Anggaran</label>
                                 <input type="number" name="tahun_anggaran" class="form-control"
-                                    placeholder="Masukkan Tahun Anggaran">
+                                    placeholder="Masukkan Tahun Anggaran" value="{{ old('tahun_anggaran') }}">
                             </div>
                         </div>
                     </div>

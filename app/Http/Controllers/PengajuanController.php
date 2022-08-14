@@ -50,6 +50,22 @@ class PengajuanController extends Controller
      */
     public function store(Request $request)
     {
+        $pesan = [
+        'required' => ':attribute wajib diisi !',
+        'min' => ':attribute harus diisi minimal :min karakter !',
+        'max' => ':attribute harus diisi maksimal :max karakter !',
+        'numeric' => ':attribute harus diisi angka !',
+        ];
+        $this->validate($request,[
+            'program' => 'required',
+            'kegiatan' => 'required',
+            'sub_kegiatan' => 'required',
+            'pekerjaan' => 'required',
+            'pelaksana' => 'required',
+            'angsuran' => 'required|numeric|min:1|max:4',
+            'nilai_pengajuan' => 'required|numeric',
+            'tahun_anggaran' => 'required|numeric|min:4|',
+        ],$pesan);
         $id = intval("0" . rand(1,9) . rand(0,9) . rand(0,9));
         if($request->keterangan != null)
         {
@@ -131,6 +147,22 @@ class PengajuanController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $pesan = [
+        'required' => ':attribute wajib diisi !',
+        'min' => ':attribute harus diisi minimal :min karakter !',
+        'max' => ':attribute harus diisi maksimal :max karakter !',
+        'numeric' => ':attribute harus diisi angka !',
+        ];
+        $this->validate($request,[
+        'program' => 'required',
+        'kegiatan' => 'required',
+        'sub_kegiatan' => 'required',
+        'pekerjaan' => 'required',
+        'pelaksana' => 'required',
+        'angsuran' => 'required|numeric|min:1|max:4',
+        'nilai_pengajuan' => 'required|numeric',
+        'tahun_anggaran' => 'required|numeric|min:4',
+        ],$pesan);
         $data = Pengajuan::find($id);
         $data->update($request->all());
         Alert::success('Success', 'Data Berhasil Dirubah');

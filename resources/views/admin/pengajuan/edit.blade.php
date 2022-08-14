@@ -8,6 +8,15 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <form action="{{ route('pengajuan.update', $data->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PATCH')
@@ -71,7 +80,7 @@
                             <div class="form-group">
                                 <label>Angsuran</label>
                                 <input type="number" name="angsuran" class="form-control"
-                                    placeholder="Masukkan Jumlah Angsuran" max="3" value="{{ $data->angsuran }}">
+                                    placeholder="Masukkan Jumlah Angsuran" max="4" value="{{ $data->angsuran }}">
                             </div>
                         </div>
                         <div class="col-sm-6">

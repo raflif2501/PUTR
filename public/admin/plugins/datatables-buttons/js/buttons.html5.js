@@ -1483,7 +1483,7 @@
 
         exportOptions: {},
 
-        orientation: 'portrait',
+        orientation: 'landscape',
 
         pageSize: 'A4',
 

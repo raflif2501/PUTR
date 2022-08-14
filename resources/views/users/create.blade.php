@@ -5,11 +5,18 @@
         <div class="card card-primary">
             <div class="card-header">
                 <h3 class="card-title">Form Tambah Admin</h3>
-                <a href="{{ route('users.create') }}" type="button" class="btn btn-sm btn-danger"
-                    style="float: right">Kembali</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <form action="{{ route('users.store') }}" enctype="multipart/form-data" method="POST">
                     @csrf
                     <div class="row">
@@ -17,14 +24,16 @@
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Nama</label>
-                                <input type="text" name="name" class="form-control" placeholder="Masukkan Nama">
+                                <input type="text" name="name" class="form-control" placeholder="Masukkan Nama"
+                                    value="{{ old('name') }}">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="text" name="email" class="form-control" placeholder="Masukkan Email">
+                                <input type="text" name="email" class="form-control" placeholder="Masukkan Email"
+                                    value="{{ old('email') }}">
                             </div>
                         </div>
                     </div>
@@ -33,7 +42,8 @@
                             <!-- text input -->
                             <div class="form-group">
                                 <label>Password</label>
-                                <input type="password" name="password" class="form-control" placeholder="Masukkan Password">
+                                <input type="password" name="password" class="form-control" placeholder="Masukkan Password"
+                                    value="{{ old('password') }}">
                             </div>
                         </div>
                         <div class="col-sm-6">

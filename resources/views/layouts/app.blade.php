@@ -78,7 +78,7 @@
                             @endrole
                         </li>
                         <li class="user-footer">
-                            <div class="pull-left">
+                            <div class="pull-right">
                                 <a href="" class="btn btn-transparant"></a>
                                 <a href="" class="btn btn-transparant"></a>
                                 <a href="" class="btn btn-transparant"></a>
@@ -128,7 +128,7 @@
                             <li class="nav-item">
                                 <a href="{{ route('pengajuan.index') }}" class="nav-link">
                                     <i class="nav-icon fas fa-edit"></i>
-                                    <p>Pengajuan</p>
+                                    <p>Pengajuan (PPKo)</p>
                                 </a>
                             </li>
                         @endrole
@@ -136,7 +136,7 @@
                             <li class="nav-item">
                                 <a href="{{ route('pengecekan.index') }}" class="nav-link">
                                     <i class="nav-icon fas fa-spinner"></i>
-                                    <p>Diproses</p>
+                                    <p>Pengecekan (PPTK)</p>
                                 </a>
                             </li>
                         @endrole
@@ -144,7 +144,7 @@
                             <li class="nav-item">
                                 <a href="{{ route('verifikasi.index') }}" class="nav-link">
                                     <i class="nav-icon fas fa-copy"></i>
-                                    <p>Verifikasi</p>
+                                    <p>Verifikasi (Verifikator)</p>
                                 </a>
                             </li>
                         @endrole

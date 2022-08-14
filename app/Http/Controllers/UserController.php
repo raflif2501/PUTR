@@ -48,6 +48,12 @@ class UserController extends Controller
     */
     public function store(Request $request)
     {
+        $pesan = [
+        'required' => ':attribute wajib diisi !',
+        'min' => ':attribute harus diisi minimal :min karakter !',
+        'max' => ':attribute harus diisi maksimal :max karakter !',
+        'numeric' => ':attribute harus diisi angka !',
+        ];
         $this->validate($request, [
         'name' => 'required',
         'email' => 'required|unique:users,email',
@@ -98,6 +104,12 @@ class UserController extends Controller
     */
 public function update(Request $request, $id)
     {
+        $pesan = [
+        'required' => ':attribute wajib diisi !',
+        'min' => ':attribute harus diisi minimal :min karakter !',
+        'max' => ':attribute harus diisi maksimal :max karakter !',
+        'numeric' => ':attribute harus diisi angka !',
+        ];
         $this->validate($request, [
         'name' => 'required',
         'email' => 'required|email|unique:users,email,'.$id,
