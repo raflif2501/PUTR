@@ -35,7 +35,7 @@
                             </div>
                             <div class="form-group d-md-flex">
                                 <div class="w-50">
-                                    <label class="checkbox-wrap checkbox-primary">Remember Me
+                                    <label class="checkbox-wrap checkbox-primary">Ingat Saya
                                         <input type="checkbox" name="remember" checked>
                                         <span class="checkmark"></span>
                                     </label>
