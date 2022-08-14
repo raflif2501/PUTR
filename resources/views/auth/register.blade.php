@@ -25,7 +25,7 @@
             <div class="notfound-404">
                 <h1>STOP</h1>
             </div>
-            <h2>Registrasi Melalui Admin</h2>
+            <h2>Registrasi / Lupa Password Hubungi Admin</h2>
             <a href="/">kembali Ke Home</a>
         </div>
     </div>

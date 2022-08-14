@@ -41,7 +41,7 @@
                                     </label>
                                 </div>
                                 <div class="w-50 text-md-right">
-                                    <a href="#" style="color: #fff">Lupa Password</a>
+                                    <a href="{{ route('register') }}" style="color: #fff">Lupa Password</a>
                                 </div>
                             </div>
                             <div class="form-group">
