@@ -6,7 +6,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">DATA DALAM PROSES PENGECEKAN</h3>
+                        <h3 class="card-title">DATA DISETUJUI</h3>
                         {{-- <a href="{{ route('pengajuan.create') }}" type="button" class="btn btn-success"
                             style="float: right">Tambah Data Pengajuan</a> --}}
                     </div>
@@ -26,12 +26,14 @@
                                     <th>Nilai Pengajuan</th>
                                     <th>Tahun Anggaran</th>
                                     <th>Tanggal Pengajuan</th>
-                                    <th>Status</th>
+                                    <th>Status </th>
                                     <th>Keterangan</th>
                                     <th>Tanggal Pengecekan</th>
                                     <th>Status</th>
                                     <th>Keterangan</th>
-                                    <th>Action</th>
+                                    <th>Tanggal Verifikasi</th>
+                                    <th>Status</th>
+                                    <th>Keterangan</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -44,7 +46,7 @@
                                     }
                                 @endphp
                                 @foreach ($data as $p)
-                                    @if ($p->verifikasi->status == 'Tidak Lengkap' || $p->status == null)
+                                    @if ($p->status != null)
                                         <tr>
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $p->pengajuan->resi }}</td>
@@ -59,22 +61,12 @@
                                             <td>{{ $p->pengajuan->tanggal_pengajuan }}</td>
                                             <td>{{ $p->pengajuan->status }}</td>
                                             <td>{{ $p->pengajuan->keterangan }}</td>
-                                            <td>{{ $p->tanggal_pengecekan }}</td>
+                                            <td>{{ $p->pengecekan->tanggal_pengecekan }}</td>
+                                            <td>{{ $p->pengecekan->status }}</td>
+                                            <td>{{ $p->pengecekan->keterangan }}</td>
+                                            <td>{{ $p->tanggal_verifikasi }}</td>
                                             <td>{{ $p->status }}</td>
                                             <td>{{ $p->keterangan }}</td>
-                                            <td>
-                                                @if ($p->status == null)
-                                                    <a href="{{ route('pengecekan.edit', $p->id) }}"
-                                                        class="btn btn-sm btn-success">Proses Pengajuan
-                                                    </a>
-                                                @elseif ($p->verifikasi->status == 'Tidak Lengkap')
-                                                    <a href="{{ route('pengecekan.edit', $p->id) }}"
-                                                        class="btn btn-sm btn-warning">Proses Ulang
-                                                    </a>
-                                                @elseif ($p->status != null)
-                                                    Sudah Diproses
-                                                @endif
-                                            </td>
                                         </tr>
                                     @endif
                                 @endforeach

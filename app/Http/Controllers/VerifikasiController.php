@@ -30,6 +30,12 @@ class VerifikasiController extends Controller
         // dd($data);
         return view('admin.verifikasi.index', compact('data'));
     }
+    public function rekap()
+    {
+        $data = Verifikasi::all();
+        // dd($data);
+        return view('admin.verifikasi.rekap', compact('data'));
+    }
     public function disetujui()
     {
         $data = Verifikasi::select("*")->where("status","=","Disetujui")->get();

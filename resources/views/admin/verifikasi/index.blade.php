@@ -47,7 +47,7 @@
                                     }
                                 @endphp
                                 @foreach ($data as $p)
-                                    @if ($p->pengecekan->status != null)
+                                    @if ($p->pengecekan->status != null && $p->status != 'Disetujui')
                                         <tr>
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $p->pengajuan->resi }}</td>
@@ -73,7 +73,11 @@
                                                     <a href="{{ route('verifikasi.edit', $p->id) }}"
                                                         class="btn btn-sm btn-success">Proses Verifikasi
                                                     </a>
-                                                @elseif ($p->status != null)
+                                                @elseif ($p->status == 'Tidak Lengkap')
+                                                    <a href="{{ route('verifikasi.edit', $p->id) }}"
+                                                        class="btn btn-sm btn-warning">Verifikasi Ulang
+                                                    </a>
+                                                @elseif($p->status != null)
                                                     Sudah Diverifikasi
                                                 @endif
                                             </td>

@@ -33,6 +33,7 @@ Route::resource('verifikasi', VerifikasiController::class);
 Route::get('/disetujui', [App\Http\Controllers\VerifikasiController::class, 'disetujui'])->name('disetujui');
 Route::get('/ditolak', [App\Http\Controllers\VerifikasiController::class, 'ditolak'])->name('ditolak');
 Route::get('/tidaklengkap', [App\Http\Controllers\VerifikasiController::class, 'tidaklengkap'])->name('tidaklengkap');
+Route::get('/rekap', [App\Http\Controllers\VerifikasiController::class, 'rekap'])->name('rekap');
 Route::resource('users', UserController::class);
 });
 Route::get('/cari', [App\Http\Controllers\SearchController::class, 'cari'])->name('cari');

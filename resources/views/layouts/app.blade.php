@@ -150,6 +150,12 @@
                         @endrole
                         <li class="nav-header">Hasil Verifikasi</li>
                         <li class="nav-item">
+                            <a href="/rekap" class="nav-link">
+                                <i class="nav-icon fas fa-tasks"></i>
+                                <p>Rekap Verifikasi</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="/disetujui" class="nav-link">
                                 <i class="nav-icon fas fa-check"></i>
                                 <p>Disetujui</p>

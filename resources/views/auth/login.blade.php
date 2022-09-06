@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ asset('loginn') }}/css/style.css">
 </head>
 
-<body class="img js-fullheight" style="background-image: url({{ asset('loginn/images/background.png') }});">
+<body class="img js-fullheight" style="background-image: url({{ asset('search/images/background.png') }});">
     <section class="ftco-section">
         <div class="container">
             <div class="row justify-content-center">
@@ -22,14 +22,25 @@
             <div class="row justify-content-center">
                 <div class="col-md-6 col-lg-4">
                     <div class="login-wrap p-0">
+                        @if (session()->has('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                        @error('error')
+                            <div class="alert alert-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
                         <form action="{{ route('login') }}" method="POST" class="signin-form">
                             @csrf
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Email" name="email" required>
+                                <input type="text" class="form-control" placeholder="Email" name="email"
+                                    value="{{ old('email') }}" required>
                             </div>
                             <div class="form-group">
                                 <input id="password-field" type="password" class="form-control" name="password"
-                                    placeholder="Password" required>
+                                    placeholder="Password" value="{{ old('password') }}" required>
                                 <span toggle="#password-field"
                                     class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             </div>
