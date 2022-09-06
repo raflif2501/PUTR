@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SP2D | Admin</title>
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('admin') }}/dist/img/pemkab.png">
+    <title>SI-TRACKING SPS2D</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('admin') }}/dist/img/logo.png">
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -39,7 +39,7 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="{{ asset('admin') }}/dist/img/pemkab.png" alt="Logo Kabupaten Sumenep"
+            <img class="animation__shake" src="{{ asset('admin') }}/dist/img/logo.png" alt="SI TRACKING SP2D"
                 height="60" width="60">
         </div>
 
@@ -103,9 +103,9 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="{{ route('home') }}" class="brand-link">
-                <img src="{{ asset('admin') }}/dist/img/pemkab.png" alt="Logo Kabupaten Sumenep"
+                <img src="{{ asset('admin') }}/dist/img/logo.png" alt="SI TRACKING SP2D"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">PU Tata Ruang</span>
+                <span class="brand-text font-weight-light">SI-TRACKING SP2D</span>
             </a>
 
             <!-- Sidebar -->

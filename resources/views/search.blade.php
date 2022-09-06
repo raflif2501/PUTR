@@ -11,7 +11,7 @@
 
     <!-- Title Page-->
     <title>Cek Resi | PUTR</title>
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('admin') }}/dist/img/pemkab.png">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('admin') }}/dist/img/logo.png">
 
     <!-- Icons font CSS-->
     <link href="{{ asset('search') }}/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet"
