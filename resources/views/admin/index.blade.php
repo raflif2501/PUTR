@@ -23,14 +23,15 @@
                 <!-- small box -->
                 <div class="small-box bg-warning">
                     <div class="inner">
-                        <h3>{{ $tidaklengkap }}</h3>
+                        <h3>{{ $pengajuankeuangan }}</h3>
 
-                        <p>Tidak Lengkap</p>
+                        <p>Pengajuan Keuangan</p>
                     </div>
                     <div class="icon">
-                        <i class="ion ion-clipboard"></i>
+                        <i class="ion ion-load-a"></i>
                     </div>
-                    <a href="/tidaklengkap" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="/pengajuankeuangan" class="small-box-footer">More info <i
+                            class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- ./col -->

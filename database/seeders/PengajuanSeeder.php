@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Pengajuan;
 use App\Models\Pengecekan;
 use App\Models\Verifikasi;
+use App\Models\Keuangan;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use DB;
@@ -23,6 +24,8 @@ class PengajuanSeeder extends Seeder
 
         DB::table('pengajuans')->delete();
         DB::table('pengecekans')->delete();
+        DB::table('verifikasis')->delete();
+        DB::table('keuangans')->delete();
 
         $coba = Pengajuan::create(array(
             'resi' => 'asd65sa6dsa4',
@@ -47,7 +50,7 @@ class PengajuanSeeder extends Seeder
         ));
         $this->command->info('Pengecekan telah diisi!');
 
-        Verifikasi::create(array(
+        $verif = Verifikasi::create(array(
             'tanggal_verifikasi' => '2021-06-27 14:14:58',
             'status' => 'Disetujui',
             'keterangan' => '',
@@ -55,5 +58,15 @@ class PengajuanSeeder extends Seeder
             'pengajuan_id' => $coba->id,
         ));
         $this->command->info('Verifikasi telah diisi!');
+
+        Keuangan::create(array(
+            'tanggal_keuangan' => '2021-06-28 14:14:58',
+            'status' => 'Disetujui',
+            'keterangan' => '',
+            'pengajuan_id' => $coba->id,
+            'pengecekan_id' => $cek->id,
+            'verifikasi_id' => $verif->id,
+        ));
+        $this->command->info('Keuangan telah diisi!');
     }
 }

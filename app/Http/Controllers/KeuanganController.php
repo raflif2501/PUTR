@@ -5,12 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Pengajuan;
-use App\Models\Pengecekan;
-use App\Models\Verifikasi;
+use App\Models\Keuangan;
 use RealRashid\SweetAlert\Facades\Alert;
 use Carbon\Carbon;
 
-class VerifikasiController extends Controller
+class KeuanganController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,15 +19,14 @@ class VerifikasiController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('role:admin|verificator');
+        $this->middleware('role:admin|keuangan');
     }
     public function index()
     {
         $auth = auth()->user();
-        $data = Verifikasi::all();
-        // $cek = Verifikasi::select("pengecekan_id")->get();
+        $data = Keuangan::all();
         // dd($data);
-        return view('admin.verifikasi.index', compact('data'));
+        return view('admin.keuangan.index', compact('data'));
     }
 
     /**
@@ -38,7 +36,10 @@ class VerifikasiController extends Controller
      */
     public function create()
     {
-        //
+        $resi = Str::random(12);
+        $today = Carbon::now();
+        return view('admin.pengajuan.create', compact('resi','today'));
+        // dd($resi);
     }
 
     /**
@@ -49,7 +50,10 @@ class VerifikasiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Keuangan::create($request->all());
+        // dd($request);
+        Alert::success('Success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('keuangan.index');
     }
 
     /**
@@ -71,9 +75,9 @@ class VerifikasiController extends Controller
      */
     public function edit($id)
     {
-        $data = Verifikasi::find($id);
+        $data = Keuangan::find($id);
         $today = Carbon::now();
-        return view('admin.verifikasi.edit', compact('data','today'));
+        return view('admin.keuangan.edit', compact('data','today'));
     }
 
     /**
@@ -85,10 +89,10 @@ class VerifikasiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = Verifikasi::find($id);
+        $data = Keuangan::find($id);
         $data->update($request->all());
-        Alert::success('Success', 'Data Berhasil Diverifikasi');
-        return redirect()->route('verifikasi.index');
+        Alert::success('Success', 'Data Berhasil Diproses');
+        return redirect()->route('keuangan.index');
     }
 
     /**
@@ -99,7 +103,32 @@ class VerifikasiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Keuangan::find($id);
+        $data->delete();
     }
 
+    public function rekap()
+    {
+        $data = Keuangan::all();
+        // dd($data);
+        return view('admin.keuangan.rekap', compact('data'));
+    }
+    public function disetujui()
+    {
+        $data = Keuangan::select("*")->where("status","=","Disetujui")->get();
+        // dd($data);
+        return view('admin.keuangan.disetujui', compact('data'));
+    }
+    public function ditolak()
+    {
+        $data = Keuangan::select("*")->where("status","=","Ditolak")->get();
+        // dd($data);
+        return view('admin.keuangan.ditolak', compact('data'));
+    }
+    public function pengajuankeuangan()
+    {
+        $data = Keuangan::select("*")->where("status","=","Pengajuan Keuangan")->get();
+        // dd($data);
+        return view('admin.keuangan.pengajuankeuangan', compact('data'));
+    }
 }

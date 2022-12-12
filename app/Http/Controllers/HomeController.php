@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use App\Models\Pengajuan;
 use App\Models\Pengecekan;
 use App\Models\Verifikasi;
+use App\Models\Keuangan;
 
 class HomeController extends Controller
 {
@@ -29,10 +30,10 @@ class HomeController extends Controller
     public function index()
     {
         $auth = auth()->user();
-        $disetujui = Verifikasi::where('status','=', 'Disetujui')->count();
-        $ditolak = Verifikasi::where('status', '=','Ditolak')->count();
-        $tidaklengkap = Verifikasi::where('status','=', 'Tidak Lengkap')->count();
+        $disetujui = Keuangan::where('status','=', 'Disetujui')->count();
+        $ditolak = Keuangan::where('status', '=','Ditolak')->count();
+        $pengajuankeuangan = Keuangan::where('status','=', 'Pengajuan Keuangan')->count();
         $pengajuan = Pengajuan::count();
-        return view('admin.index',compact('disetujui','ditolak','tidaklengkap','pengajuan')) ;
+        return view('admin.index',compact('disetujui','ditolak','pengajuankeuangan','pengajuan')) ;
     }
 }

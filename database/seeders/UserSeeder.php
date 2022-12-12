@@ -29,6 +29,9 @@ class UserSeeder extends Seeder
         Role::create([
             'name' => 'verificator',
         ]);
+        Role::create([
+            'name' => 'keuangan',
+        ]);
 
 
         // Administrator
@@ -185,5 +188,19 @@ class UserSeeder extends Seeder
         'password' => bcrypt('V3r1f1k4t0r;'),
         ]);
         $user->assignRole('verificator');
+
+        //keuangan
+        $user = User::create([
+        'name' => 'Keuangan I',
+        'email' => 'keuangan1@keuangan.com',
+        'password' => bcrypt('K3u4ng4n1;'),
+        ]);
+        $user->assignRole('keuangan');
+        $user = User::create([
+        'name' => 'Keuangan II',
+        'email' => 'keuangan2@keuangan.com',
+        'password' => bcrypt('K3u4ng4n2;'),
+        ]);
+        $user->assignRole('keuangan');
     }
 }

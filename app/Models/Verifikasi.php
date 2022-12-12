@@ -22,4 +22,8 @@ class Verifikasi extends Model
     {
         return $this->belongsTo(Pengajuan::class);
     }
+    public function keuangan()
+    {
+        return $this->hasOne(Keuangan::class);
+    }
 }

@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use App\Models\Pengajuan;
 use App\Models\Pengecekan;
 use App\Models\Verifikasi;
+use App\Models\Keuangan;
 use RealRashid\SweetAlert\Facades\Alert;
 use Carbon\Carbon;
 
@@ -106,8 +107,15 @@ class PengajuanController extends Controller
             'status' => '',
         ]);
         Verifikasi::create([
+            'id' => $id,
             'pengajuan_id' => $id,
             'pengecekan_id' => $id,
+            'status' => '',
+        ]);
+        Keuangan::create([
+            'pengajuan_id' => $id,
+            'pengecekan_id' => $id,
+            'verifikasi_id' => $id,
             'status' => '',
         ]);
         // dd($request);
@@ -180,16 +188,20 @@ class PengajuanController extends Controller
         // $data2 = Verifikasi::find($id);
         $data = Pengajuan::find($id);
         $data1 = Pengecekan::find($id);
-        $data2 = Verifikasi::where('id',$id)->first();
+        $data2 = Verifikasi::find($id);
+        $data1 = Keuangan::where('id',$id)->first();
         // dd($data2);
-        if ($data2 != null) {
-            $data2->delete();
-            if ($data1 != null) {
-                $data1->delete();
-                if ($data != null) {
-                    $data->delete();
-                    Alert::success('Success', 'Data Berhasil Dihapus');
-                    return back();
+        if ($data3 != null) {
+            $data3->delete();
+            if ($data2 != null) {
+                $data2->delete();
+                if ($data1 != null) {
+                    $data1->delete();
+                    if ($data != null) {
+                        $data->delete();
+                        Alert::success('Success', 'Data Berhasil Dihapus');
+                        return back();
+                    }
                 }
             }
         }

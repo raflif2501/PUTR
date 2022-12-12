@@ -148,11 +148,19 @@
                                 </a>
                             </li>
                         @endrole
-                        <li class="nav-header">Hasil Verifikasi</li>
+                        @role('admin|keuangan')
+                            <li class="nav-item">
+                                <a href="{{ route('keuangan.index') }}" class="nav-link">
+                                    <i class="nav-icon fas fa-money-check-alt"></i>
+                                    <p>Keuangan (Bendahara)</p>
+                                </a>
+                            </li>
+                        @endrole
+                        <li class="nav-header">HASIL PENGAJUAN</li>
                         <li class="nav-item">
                             <a href="/rekap" class="nav-link">
                                 <i class="nav-icon fas fa-tasks"></i>
-                                <p>Rekap Verifikasi</p>
+                                <p>Rekap Pengajuan</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -162,9 +170,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/tidaklengkap" class="nav-link">
-                                <i class="nav-icon fas fa-clipboard"></i>
-                                <p>Tidak lengkap</p>
+                            <a href="/pengajuankeuangan" class="nav-link">
+                                <i class="nav-icon fas fa-money-bill"></i>
+                                <p>Pengajuan Keuangan</p>
                             </a>
                         </li>
                         <li class="nav-item">

@@ -4,21 +4,21 @@
     <div class="container-fluid">
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">Form Verifikasi SP2D</h3>
+                <h3 class="card-title">Form Keuangan SP2D</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <form action="{{ route('verifikasi.update', $data->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('keuangan.update', $data->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PATCH')
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label>Status Verifikasi</label>
+                                <label>Status Keuangan</label>
                                 <select name="status" class="form-control">
-                                    <option value="Disetujui">Disetujui</option>
+                                    <option value="Pengajuan Keuangan">Pengajuan Keuangan</option>
                                     <option value="Ditolak">Ditolak</option>
-                                    <option value="Tidak Lengkap">Tidak Lengkap</option>
+                                    <option value="Disetujui">Disetujui</option>
                                 </select>
                             </div>
                         </div>
@@ -32,13 +32,12 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group" style="display: none">
-                            <label>Tanggal Verifikasi</label>
-                            <input type="text" name="tanggal_verifikasi" value="{{ $today }}"
-                                class="form-control">
+                            <label>Tanggal Keuangan</label>
+                            <input type="text" name="tanggal_keuangan" value="{{ $today }}" class="form-control">
                         </div>
                     </div>
                     <div class="card-footer" style="float: right">
-                        <a href="{{ route('verifikasi.index') }}" class="btn btn-danger">Kembali</a>&ensp;
+                        <a href="{{ route('keuangan.index') }}" class="btn btn-danger">Kembali</a>&ensp;
                         <button type="submit" class="btn btn-primary" style="float: right">Submit</button>
                     </div>
                 </form>

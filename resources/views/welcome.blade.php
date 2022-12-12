@@ -10,7 +10,7 @@
     <meta name="keywords" content="Colrolib Templates">
 
     <!-- Title Page-->
-    <title>Cek Resi | PUTR</title>
+    <title>Cek SP2D | PUTR</title>
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('admin') }}/dist/img/logo.png">
 
     <!-- Icons font CSS-->
@@ -37,15 +37,15 @@
                 <div class="card-body">
                     <ul class="tab-list">
                         <li class="tab-list__item active"">
-                            <a class="tab-list__link" href="/#tab1" data-toggle="tab">Cek Resi</a>
+                            <a class="tab-list__link" href="/#tab1" data-toggle="tab">Cek SP2D</a>
                         </li>
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab1">
                             <form method="GET" action="/cari">
                                 <div class="input-group">
-                                    <label class="label">Resi</label>
-                                    <input type="text" name="cari" placeholder="Masukkan Resi"
+                                    <label class="label"></label>
+                                    <input type="text" name="cari" placeholder="Masukkan Kode Unik"
                                         required="required">
                                     <i class="zmdi zmdi-key input-group-symbol"></i>
                                 </div>
@@ -55,7 +55,7 @@
                                         required="required">
                                     <i class="zmdi zmdi-key input-group-symbol"></i>
                                 </div> --}}
-                                <button class="btn-submit m-t-20" type="submit">Cek Resi</button>
+                                <button class="btn-submit m-t-20" type="submit">Cek SP2D</button>
                             </form>
                         </div>
                     </div>

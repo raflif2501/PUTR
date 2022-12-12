@@ -22,4 +22,8 @@ class Pengajuan extends Model
     {
         return $this->hasOne(Verifikasi::class);
     }
+    public function keuangan()
+    {
+        return $this->hasOne(Keuangan::class);
+    }
 }

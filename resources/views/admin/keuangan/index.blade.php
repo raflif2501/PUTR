@@ -6,7 +6,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">DATA DALAM PROSES VERIFIKASI</h3>
+                        <h3 class="card-title">DATA DALAM PROSES PENGECEKAN</h3>
                         {{-- <a href="{{ route('pengajuan.create') }}" type="button" class="btn btn-success"
                             style="float: right">Tambah Data Pengajuan</a> --}}
                     </div>
@@ -26,12 +26,15 @@
                                     <th>Nilai Pengajuan</th>
                                     <th>Tahun Anggaran</th>
                                     <th>Tanggal Pengajuan</th>
-                                    <th>Status </th>
+                                    <th>Status</th>
                                     <th>Keterangan</th>
                                     <th>Tanggal Pengecekan</th>
                                     <th>Status</th>
                                     <th>Keterangan</th>
                                     <th>Tanggal Verifikasi</th>
+                                    <th>Status</th>
+                                    <th>Keterangan</th>
+                                    <th>Tanggal Keuangan</th>
                                     <th>Status</th>
                                     <th>Keterangan</th>
                                     <th>Action</th>
@@ -47,7 +50,7 @@
                                     }
                                 @endphp
                                 @foreach ($data as $p)
-                                    @if ($p->pengecekan->status != null && $p->status != 'Disetujui')
+                                    @if ($p->verifikasi->status == 'Disetujui' && ($p->status == null || $p->status == 'Pengajuan Keuangan'))
                                         <tr>
                                             <td>{{ $no++ }}</td>
                                             <td>{{ $p->pengajuan->resi }}</td>
@@ -65,20 +68,25 @@
                                             <td>{{ $p->pengecekan->tanggal_pengecekan }}</td>
                                             <td>{{ $p->pengecekan->status }}</td>
                                             <td>{{ $p->pengecekan->keterangan }}</td>
-                                            <td>{{ $p->tanggal_verifikasi }}</td>
+                                            <td>{{ $p->verifikasi->tanggal_verifikasi }}</td>
+                                            <td>{{ $p->verifikasi->status }}</td>
+                                            <td>{{ $p->verifikasi->keterangan }}</td>
+                                            <td>{{ $p->tanggal_keuangan }}</td>
                                             <td>{{ $p->status }}</td>
                                             <td>{{ $p->keterangan }}</td>
                                             <td>
                                                 @if ($p->status == null)
-                                                    <a href="{{ route('verifikasi.edit', $p->id) }}"
-                                                        class="btn btn-sm btn-warning">Proses Verifikasi
+                                                    <a href="{{ route('keuangan.edit', $p->id) }}"
+                                                        class="btn btn-sm btn-warning">Proses
                                                     </a>
-                                                @elseif ($p->status == 'Tidak Lengkap')
-                                                    <a href="{{ route('verifikasi.edit', $p->id) }}"
-                                                        class="btn btn-sm btn-warning">Verifikasi Ulang
+                                                @elseif ($p->status == 'Pengajuan Keuangan')
+                                                    <a href="{{ route('keuangan.edit', $p->id) }}"
+                                                        class="btn btn-sm btn-warning">Proses Ulang
                                                     </a>
-                                                @elseif($p->status != null)
-                                                    Sudah Diverifikasi
+                                                @elseif ($p->status == 'Disetujui')
+                                                    Disetujui Keuangan
+                                                @elseif ($p->status == 'Ditolak')
+                                                    Ditolak Keuangan
                                                 @endif
                                             </td>
                                         </tr>

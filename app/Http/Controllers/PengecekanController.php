@@ -38,7 +38,7 @@ class PengecekanController extends Controller
     {
         $resi = Str::random(12);
         $today = Carbon::now();
-        return view('admin.pengecekan.create', compact('resi','today'));
+        return view('admin.pengajuan.create', compact('resi','today'));
         // dd($resi);
     }
 
