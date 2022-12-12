@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Pengajuan;
 use App\Models\Pengecekan;
 use App\Models\Verifikasi;
+use App\Models\Keuangan;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class SearchController extends Controller

@@ -126,6 +126,29 @@
                                         <i class="zmdi zmdi-assignment-alert input-group-symbol"></i>
                                     </div>
                                 @endif
+                                <div class="input-group">
+                                    <label class="label">Pengajuan Keuangan oleh Bendahara</label>
+                                    @if ($p->keuangan->status == 'Disetujui')
+                                        <h5 disabled>{{ $p->keuangan->status }}</h5>
+                                        <i class="zmdi zmdi-check input-group-symbol"></i>
+                                    @elseif ($p->keuangan->status == 'Ditolak')
+                                        <h5 disabled>{{ $p->keuangan->status }}</h5>
+                                        <i class="zmdi zmdi-close input-group-symbol"></i>
+                                    @elseif ($p->keuangan->status == 'Pengajuan Keuangan')
+                                        <h5 disabled>{{ $p->keuangan->status }}</h5>
+                                        <i class="zmdi zmdi-assignment-alert input-group-symbol"></i>
+                                    @else
+                                        <h5 disabled>Belum Pengajuan Keuangan</h5>
+                                        <i class="zmdi zmdi-spinner input-group-symbol"></i>
+                                    @endif
+                                </div>
+                                @if ($p->keuangan->keterangan != null)
+                                    <div class="input-group">
+                                        <label class="label">Keterangan dari Bendahara</label>
+                                        <h5 disabled>{{ $p->keuangan->keterangan }}</h5>
+                                        <i class="zmdi zmdi-assignment-alert input-group-symbol"></i>
+                                    </div>
+                                @endif
                             @endforeach
                         </div>
                     </div>

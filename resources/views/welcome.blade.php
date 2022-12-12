@@ -44,17 +44,10 @@
                         <div class="tab-pane active" id="tab1">
                             <form method="GET" action="/cari">
                                 <div class="input-group">
-                                    <label class="label"></label>
-                                    <input type="text" name="cari" placeholder="Masukkan Kode Unik"
+                                    <label class="label">Masukkan Resi</label>
+                                    <input type="text" name="cari" placeholder="__________________________"
                                         required="required">
-                                    <i class="zmdi zmdi-key input-group-symbol"></i>
                                 </div>
-                                {{-- <div class="input-group">
-                                    <label class="label">Token</label>
-                                    <input type="text" name="address" placeholder="Masukkan Token"
-                                        required="required">
-                                    <i class="zmdi zmdi-key input-group-symbol"></i>
-                                </div> --}}
                                 <button class="btn-submit m-t-20" type="submit">Cek SP2D</button>
                             </form>
                         </div>
